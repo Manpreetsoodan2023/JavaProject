@@ -5,7 +5,7 @@ public class ArithmeticOperators {
 	int a;
 	
 	int b;
-
+	
 	void divisionOfNumbers() {
 		
 		int quotient = a/b;
