@@ -1,25 +1,27 @@
 package loopAssignment;
 
-public class TankCapacity {
+import java.util.Scanner;
 
-	int tankCapacity = 100;
-	int bucketCapacity = 10;
+public class TankCapacity {
+	Scanner sc = new Scanner(System.in);
+	int tankCapacity;
+	int bucketCapacity;
 	int numberOfBuckets;
 	
 	void fillWaterTank() {
 		
-		numberOfBuckets = tankCapacity/bucketCapacity;
+		System.out.println("Enter bucket capacity in litres");
+		bucketCapacity = sc.nextInt();
 		
-		System.out.println("Number of buckets required to fill the tank is "+ numberOfBuckets);
-		
-		while(bucketCapacity <= tankCapacity)
+		while(tankCapacity <= 100 - bucketCapacity)
+			
 		{
+			tankCapacity += bucketCapacity;
 			
 		if(bucketCapacity<=tankCapacity)
 		{
-			System.out.println("The quantity of water filled in tank is " +bucketCapacity);
+			System.out.println("The quantity of water filled in tank is " +tankCapacity);
 			
-			bucketCapacity += 10;
 		}
 		
 			else

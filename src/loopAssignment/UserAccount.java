@@ -12,41 +12,36 @@ public class UserAccount {
 	Scanner sc = new Scanner(System.in);
 
 	void userCredentials() {
-		
 
-		for (int counter = 1;
-				counter<=3;
-				counter++)
-			
+		for (int counter = 1; counter <= 3; counter++)
+
 		{
 			System.out.println("Enter your UserId");
 			enteredId = sc.next();
 			System.out.println("Enter your password");
 			enteredPassword = sc.next();
-			
-	    if ((enteredId == UserId) && (enteredPassword == password)){
-			
-			System.out.println("You are logged into the application");
-		}
-	 
-	    
-	    else  {
-		
-			System.out.println("Incorrect User id or password. Try again");
-				
-	    }
-	
-		if (UserId != enteredId || password != enteredPassword && counter ==3){
-			
-			System.out.println("Account locked");
-			
-		}
+
+			if (enteredId.equals(UserId) && enteredPassword.equals(password))
+
+			{
+
+				System.out.println("You are logged into the application");
+
+				break;
+			}
+
 			else {
-				
+
 				System.out.println("Incorrect User id or password. Try again");
 			}
-		
-			}
-	}
 
+			if ((UserId != enteredId) && (counter == 3) || (password != enteredPassword) && (counter == 3)) {
+
+				System.out.println("Account is locked");
+
+			}
+
+		}
+
+	}
 }
