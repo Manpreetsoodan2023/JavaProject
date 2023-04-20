@@ -47,13 +47,13 @@ public class FileEligibility {
 
 	}
 
-	int workExperience(int NumberOfYearsExperience) {
+ void workExperience(int NumberOfYearsExperience) {
 		if ((NumberOfYearsExperience == 4) || (NumberOfYearsExperience == 5)) {
 			expPoints = 13;
 		} else if (NumberOfYearsExperience >= 6) {
 			expPoints = 15;
 		}
-		return expPoints;
+//		return expPoints;
 
 	}
 	

@@ -8,7 +8,7 @@ public class PizzaPrice {
 	int mediumPizzaPrice = 20;
 	int largePizzaPrice = 25;
 	int totalPrice;
-	int pepperoni;
+	String pepperoni;
 	String pizzaSize;
 	boolean extraCheese;
 
@@ -42,19 +42,19 @@ public class PizzaPrice {
 	}
 
 	void pepperoniAddOn() {
-		System.out.println("How many pepperoni toppings you would like to add : ");
-		pepperoni = sc.nextInt();
-		if ((pepperoni >= 1) && (pizzaSize == "Small")) {
-			totalPrice = (n * smallPizzaPrice) + (2 * pepperoni);
-		} else if (((pepperoni == 0) && (pizzaSize == "Small"))) {
+		System.out.println("Do you want to add pepperoni on " + pizzaSize + "pizza");
+		pepperoni = sc.next();
+		if ((pepperoni == "y") && (pizzaSize == "Small")) {
+			totalPrice = (n * smallPizzaPrice) + 2;
+		} else if (((pepperoni == "n") && (pizzaSize == "Small"))) {
 			totalPrice = n * smallPizzaPrice;
-		} else if ((pepperoni >= 1) && (pizzaSize == "Medium")) {
-			totalPrice = (n * mediumPizzaPrice) + (3 * pepperoni);
-		} else if ((pepperoni == 0) && (pizzaSize == "Medium")) {
+		} else if ((pepperoni == "y") && (pizzaSize == "Medium")) {
+			totalPrice = (n * mediumPizzaPrice) +3;
+		} else if ((pepperoni == "n") && (pizzaSize == "Medium")) {
 			totalPrice = n * mediumPizzaPrice;
-		} else if ((pepperoni >= 1) && (pizzaSize == "Large")) {
-			totalPrice = (n * largePizzaPrice) + (3 * pepperoni);
-		} else if ((pepperoni >= 1) && (pizzaSize == "Large")) {
+		} else if ((pepperoni == "y") && (pizzaSize == "Large")) {
+			totalPrice = (n * largePizzaPrice) + 3;
+		} else if ((pepperoni=="n") && (pizzaSize == "Large")) {
 			totalPrice = n * largePizzaPrice;
 		}
 	}
@@ -71,5 +71,4 @@ public class PizzaPrice {
 		}
 
 	}
-
 }
