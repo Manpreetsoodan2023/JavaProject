@@ -12,14 +12,18 @@ public class CityMain {
 
 		System.out.println("Enter city name : ");
 		String name = sc.next();
-		nameOfCities.searchCityName(name);
+		boolean cityNameFound = nameOfCities.searchCityName(name);
+		if (cityNameFound) {
+			System.out.println("City name found");
 
-		nameOfCities.checkNamesForSpecificString("ton");
+		} else
+			System.out.println("City not found in the list");
+
+		nameOfCities.printCitiesWithSubString("ton");
 
 		nameOfCities.replaceStringInCityNames("ton", "fun");
 
-		nameOfCities.extractWordsFromString("100 queen street" , "Toronto" , "M5V 3V3");
-		
-	}
+		nameOfCities.extractSubStringFromString();
 
+	}
 }
