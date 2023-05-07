@@ -8,75 +8,59 @@ public class OperationsMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		PersonsAccount account = new PersonsAccount();
-		BankOperations bo = null;
+		PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500);
+		System.out.println("Account holder's name : " + account.getAccountHolderName() + " and Account number : "
+				+ account.getAccountNumber());
+
+		BankOperations bankOperations = null;
 
 		System.out.println("What operation would you like to perform? : ATM or Online Banking ");
 		String selectOperation = sc.next();
 
-		if (selectOperation.equalsIgnoreCase("ATM")) {
-			bo = new ATM();
+		switch (selectOperation) {
 
-			System.out.println("Enter ATM pin : ");
-			int enteredPin = sc.nextInt();
+		case "ATM":
+			bankOperations = new ATM();
 
-			for (int counter = 1; counter <= 3; counter++) {
-
-				if (account.getPin() == enteredPin) {
-					System.out.println("Please select whether you want to withdraw money or deposit money : ");
-					String selectTransaction = sc.next();
-					if (selectTransaction.equalsIgnoreCase("withdraw")) {
-						System.out.println(bo.withdrawMoney());
-
-					}
-					if (selectTransaction.equalsIgnoreCase("deposit")) {
-						System.out.println(bo.depositMoney());
-					}
-					break;
-				} else {
-
-					if (account.getPin() != enteredPin && counter == 3) {
-						System.out.println("Entered PIN is incorrect and your account is locked");
-					} else {
-						System.out.println("Entered PIN is incorrect");
-					}
+			if (bankOperations.flag) {
+				System.out
+						.println("Please select whether you want to withdraw money or deposit money or update pin : ");
+				String selectTransaction = sc.next();
+				if (selectTransaction.equalsIgnoreCase("withdraw")) {
+					bankOperations.withdrawMoney();
+				}
+				if (selectTransaction.equalsIgnoreCase("deposit")) {
+					bankOperations.depositMoney();
+				}
+				if (selectTransaction.equalsIgnoreCase("updatepin")) {
+					bankOperations.changePinPassword();
 				}
 			}
-		}
 
-			if (selectOperation.equalsIgnoreCase("Online Banking")) {
-				bo = new OnlineBanking();
-				System.out.println("Enter bank account password :");
-				String enteredPassword = sc.next();
+			break;
 
-				for (int i = 1; i <= 3; i++) {
+		case "OnlineBanking":
+			bankOperations = new OnlineBanking();
 
-					if (account.getPassword().equals(enteredPassword)) {
-						System.out.println("Passoword is correct");
-						System.out.println("Please select whether you want to withdraw money or deposit money : ");
-						String selectTransaction = sc.next();
-						if (selectTransaction.equalsIgnoreCase("withdraw")) {
-							System.out.println(bo.withdrawMoney());
-
-						}
-						if (selectTransaction.equalsIgnoreCase("deposit")) {
-							System.out.println(bo.depositMoney());
-						}
-
-						break;
-					}
-
-					else {
-						if (account.getPassword() != enteredPassword && i == 3) {
-							System.out.println("Entered PIN is incorrect and your account is locked");
-						} 
-						else {
-
-						}
-						System.out.println("Entered PIN is incorrect");
-					}
-
-				}
+			if (bankOperations.flag)
+				System.out.println(
+						"Please select whether you want to withdraw money or deposit money or update password: ");
+			String selectTransaction = sc.next();
+			if (selectTransaction.equalsIgnoreCase("withdraw")) {
+				bankOperations.withdrawMoney();
 			}
+			if (selectTransaction.equalsIgnoreCase("deposit")) {
+				bankOperations.depositMoney();
+			}
+			if (selectTransaction.equalsIgnoreCase("updatepassword")) {
+				bankOperations.changePinPassword();
+			}
+
+			break;
+
+		default:
+			System.out.println("Please enter a valid operation");
+			break;
 		}
 	}
+}
