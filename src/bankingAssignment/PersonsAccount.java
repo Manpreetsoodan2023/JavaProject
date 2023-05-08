@@ -33,9 +33,18 @@ public class PersonsAccount {
 	public int getPin() {
 		return pin;
 	}
+	
+	public void setPin(int newPin) {
+		this.pin = newPin;
+	}
 
 	public String getPassword() {
 		return password;
 	}
+	
+	public void setPassword(String newPassword) {
+		this.password = newPassword;
+	}
+	
 
 }

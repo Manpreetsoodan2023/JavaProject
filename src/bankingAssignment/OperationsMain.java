@@ -26,14 +26,21 @@ public class OperationsMain {
 				System.out
 						.println("Please select whether you want to withdraw money or deposit money or update pin : ");
 				String selectTransaction = sc.next();
-				if (selectTransaction.equalsIgnoreCase("withdraw")) {
+
+				switch (selectTransaction) {
+				case "withdraw":
 					bankOperations.withdrawMoney();
-				}
-				if (selectTransaction.equalsIgnoreCase("deposit")) {
+					bankOperations.displayBalance();
+					break;
+				case "deposit":
 					bankOperations.depositMoney();
-				}
-				if (selectTransaction.equalsIgnoreCase("updatepin")) {
+					bankOperations.displayBalance();
+					break;
+				case "updatepin":
 					bankOperations.changePinPassword();
+					
+					break;
+
 				}
 			}
 
@@ -46,14 +53,18 @@ public class OperationsMain {
 				System.out.println(
 						"Please select whether you want to withdraw money or deposit money or update password: ");
 			String selectTransaction = sc.next();
-			if (selectTransaction.equalsIgnoreCase("withdraw")) {
+			switch (selectTransaction) {
+			case "withdraw":
 				bankOperations.withdrawMoney();
-			}
-			if (selectTransaction.equalsIgnoreCase("deposit")) {
+				bankOperations.displayBalance();
+				break;
+			case "deposit":
 				bankOperations.depositMoney();
-			}
-			if (selectTransaction.equalsIgnoreCase("updatepassword")) {
+				bankOperations.displayBalance();
+				break;
+			case "updatepassword":
 				bankOperations.changePinPassword();
+				break;
 			}
 
 			break;
