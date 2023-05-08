@@ -38,9 +38,10 @@ public class OperationsMain {
 					break;
 				case "updatepin":
 					bankOperations.changePinPassword();
-					
 					break;
-
+				default:
+					System.out.println("Invalid selection");
+					break;
 				}
 			}
 
@@ -64,6 +65,9 @@ public class OperationsMain {
 				break;
 			case "updatepassword":
 				bankOperations.changePinPassword();
+				break;
+			default:
+				System.out.println("Invalid selection");
 				break;
 			}
 

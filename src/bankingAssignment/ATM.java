@@ -42,7 +42,7 @@ public class ATM extends BankOperations {
 		}
 		System.out.println("Updated pin is : " + newPin);
 		
-		account.setPin(newPin);
+		
 
 	}
 	
