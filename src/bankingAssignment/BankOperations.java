@@ -6,37 +6,34 @@ public abstract class BankOperations {
 
 	Scanner sc = new Scanner(System.in);
 
-	PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500, "soodanmanpreet", 1234);
-
 	double moneyToBeWithdrawn;
 	double moneyToBeDeposited;
-	double totalMoney = account.gettotalFundsAvailable();
+	double newBalance;
 	public boolean flag;
 
-	public abstract void changePinPassword();
+	public abstract void changePinPassword(PersonsAccount account);
 
-	public double withdrawMoney() {
+	public double withdrawMoney(double totalFunds) {
 		System.out.println("Enter the amount of money you would like to withdraw : ");
 		moneyToBeWithdrawn = sc.nextDouble();
-		if (moneyToBeWithdrawn <= totalMoney) {
+		if (moneyToBeWithdrawn < totalFunds) {
 			System.out.println("Please collect your money : " + moneyToBeWithdrawn);
-			totalMoney -= moneyToBeWithdrawn;
+			newBalance = totalFunds - moneyToBeWithdrawn;
 		}
-		return totalMoney;
+		return newBalance;
 	}
 
-	public double depositMoney() {
+	public double depositMoney(double totalFunds) {
 		System.out.println("Enter the amount of money you would like to deposit : ");
 		moneyToBeDeposited = sc.nextDouble();
-		totalMoney += moneyToBeDeposited;
+		newBalance = totalFunds + moneyToBeDeposited;
 
-		return totalMoney;
+		return newBalance;
 	}
 
 	public void displayBalance() {
 
-		System.out.println("Balance in the account is : " + totalMoney);
+		System.out.println("Balance in the account is : " + newBalance);
 
 	}
-
 }

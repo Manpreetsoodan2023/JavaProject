@@ -2,16 +2,16 @@ package bankingAssignment;
 
 public class OnlineBanking extends BankOperations {
 
-	OnlineBanking() {
+	OnlineBanking(String password) {
 		for (int i = 1; i <= 3; i++) {
 			System.out.println("Enter bank account password :");
 			String enteredPassword = sc.next();
 
-			if (account.getPassword().equals(enteredPassword)) {
+			if (password.equals(enteredPassword)) {
 				flag = true;
 				break;
 			} else {
-				if (account.getPassword() != enteredPassword && i == 3) {
+				if (password != enteredPassword && i == 3) {
 					System.out.println("Entered Password is incorrect and your account is locked");
 				} else {
 
@@ -22,7 +22,7 @@ public class OnlineBanking extends BankOperations {
 	}
 
 	@Override
-	public void changePinPassword() {
+	public void changePinPassword(PersonsAccount account) {
 
 		System.out.println("Enter new password");
 		String newPassword = sc.next();

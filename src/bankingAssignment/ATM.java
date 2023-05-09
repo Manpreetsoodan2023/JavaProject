@@ -2,18 +2,18 @@ package bankingAssignment;
 
 public class ATM extends BankOperations {
 
-	ATM() {
+	ATM(int pin) {
 
 		for (int counter = 1; counter <= 3; counter++) {
 			System.out.println("Enter ATM pin : ");
 			int enteredPin = sc.nextInt();
 
-			if (account.getPin() == enteredPin) {
+			if (pin == enteredPin) {
 				flag = true;
 				break;
 			} else {
 
-				if (account.getPin() != enteredPin && counter == 3) {
+				if (pin != enteredPin && counter == 3) {
 					System.out.println("Entered PIN is incorrect and your account is locked");
 				} else {
 					System.out.println("Entered PIN is incorrect. Please try again!");
@@ -23,7 +23,7 @@ public class ATM extends BankOperations {
 	}
 
 	@Override
-	public void changePinPassword() {
+	public void changePinPassword(PersonsAccount account) {
 		System.out.println("Enter new ATM pin number");
 		int newPin = sc.nextInt();
 
@@ -40,6 +40,7 @@ public class ATM extends BankOperations {
 
 		}
 		System.out.println("Updated pin is : " + newPin);
+
 	}
 
 }
