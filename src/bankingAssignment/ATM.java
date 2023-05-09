@@ -22,7 +22,6 @@ public class ATM extends BankOperations {
 		}
 	}
 
-	
 	@Override
 	public void changePinPassword() {
 		System.out.println("Enter new ATM pin number");
@@ -41,9 +40,6 @@ public class ATM extends BankOperations {
 
 		}
 		System.out.println("Updated pin is : " + newPin);
-		
-		
-
 	}
-	
+
 }

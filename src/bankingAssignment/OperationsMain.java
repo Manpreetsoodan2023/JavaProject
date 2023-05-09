@@ -8,7 +8,7 @@ public class OperationsMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500);
+		PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500, "soodanmanpreet", 1234);
 		System.out.println("Account holder's name : " + account.getAccountHolderName() + " and Account number : "
 				+ account.getAccountNumber());
 

@@ -6,7 +6,7 @@ public abstract class BankOperations {
 
 	Scanner sc = new Scanner(System.in);
 
-	PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500);
+	PersonsAccount account = new PersonsAccount("86478309", "Manpreet", 1500, "soodanmanpreet", 1234);
 
 	double moneyToBeWithdrawn;
 	double moneyToBeDeposited;

@@ -21,7 +21,6 @@ public class OnlineBanking extends BankOperations {
 		}
 	}
 
-	
 	@Override
 	public void changePinPassword() {
 
