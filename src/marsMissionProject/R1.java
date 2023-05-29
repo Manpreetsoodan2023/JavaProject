@@ -7,27 +7,43 @@ public class R1 extends Rocket {
 		super(10000000, 10000, 18000);
 	}
 
-	
 	/*
-	 * land and launch methods to calculate the corresponding chance of exploding
-	 * and return either true or false based on a random number using the
-	 * probability equation for each.
+	 * land and launch methods-calculate the corresponding chance of exploding and
+	 * return either true or false based on a random number using the probability
+	 * equation for each.
 	 */
 
+	// Math.random - to create a random number of type double
+
+	@Override
 	public boolean launch() {
 
-		int random = (int) (Math.random());
+		double random = (Math.random());
 
-		return random > (0.05 * getWeightOfRocket()/ getMaximumWeight());
+		/* Chance of launch explosion = 5% * (cargo carried / cargo limit) */
+
+		double probabilityOfExplosion = (0.05 * getWeightOfRocket() / getMaximumWeight());
+		if (random > probabilityOfExplosion) {
+			return true;
+		}
+
+		return false;
 
 	}
 
+	@Override
 	public boolean land() {
 
-		int random = (int) (Math.random());
+		double random = (Math.random());
 
-		return random > (0.01 * getWeightOfRocket() / getMaximumWeight());
+		/* Chance of landing crash = 1% * (cargo carried / cargo limit) */
 
+		double probabilityOfCrash = (0.01 * getWeightOfRocket() / getMaximumWeight());
+		if (random > probabilityOfCrash) {
+			return true;
+		}
+
+		return false;
 	}
 
 }

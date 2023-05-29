@@ -47,15 +47,12 @@ public class Simulation {
 
 		ArrayList<Rocket> R1RocketList = new ArrayList<Rocket>();
 
-		R1 rocketOne = new R1();
+		Rocket rocketOne = new R1();
 
-		for (Item item : items) {
-
-			if (rocketOne.canCarry(item)) {
-				rocketOne.carry(item);
+		for (Item currentItem : items) {
+			if (rocketOne.canCarry(currentItem)) {
 				R1RocketList.add(rocketOne);
-			} 
-			
+			}
 		}
 
 		return R1RocketList;
@@ -66,14 +63,11 @@ public class Simulation {
 
 		ArrayList<Rocket> R2RocketList = new ArrayList<Rocket>();
 
-		R2 rocketTwo = new R2();
+		Rocket rocketTwo = new R2();
 
-		for (Item item : items) {
-
-			if (rocketTwo.canCarry(item)) {
-				rocketTwo.carry(item);
+		for (Item currentItem : items) {
+			if (rocketTwo.canCarry(currentItem)) {
 				R2RocketList.add(rocketTwo);
-			
 			}
 		}
 
@@ -86,26 +80,22 @@ public class Simulation {
 	 * for each of the rockets in the ArrayList. Every time a rocket explodes or
 	 * crashes (i.e if launch or land return false) it will have to send that rocket
 	 * again. All while keeping track of the total budget required to send each
-	 * rocket safely to Mars. 
-	 * runSimulation then returns the total budget required to send all rockets (including the crashed ones).
+	 * rocket safely to Mars. runSimulation then returns the total budget required
+	 * to send all rockets (including the crashed ones).
 	 */
 
-	
 	public double runSimulation(ArrayList<Rocket> allRockets) {
 
 		double totalBudget = 0;
 
 		for (Rocket rocketList : allRockets) {
-			
+
+			rocketList.land();
+			rocketList.launch();
 			totalBudget += rocketList.getCostOfRocket();
-
-			while (!rocketList.launch() || !rocketList.land()) {
-
-				totalBudget += rocketList.getCostOfRocket();
-			}
 		}
 
 		return totalBudget;
 	}
-	
+
 }
