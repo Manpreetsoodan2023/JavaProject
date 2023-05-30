@@ -47,10 +47,11 @@ public class Simulation {
 
 		ArrayList<Rocket> R1RocketList = new ArrayList<Rocket>();
 
-		Rocket rocketOne = new R1();
+		Rocket rocketOne = new R1(); /* Rocket class reference variable with R1 class */
 
 		for (Item currentItem : items) {
 			if (rocketOne.canCarry(currentItem)) {
+				rocketOne.carry(currentItem);
 				R1RocketList.add(rocketOne);
 			}
 		}
@@ -63,10 +64,11 @@ public class Simulation {
 
 		ArrayList<Rocket> R2RocketList = new ArrayList<Rocket>();
 
-		Rocket rocketTwo = new R2();
+		Rocket rocketTwo = new R2(); /* Rocket class reference variable with R1 class */
 
 		for (Item currentItem : items) {
 			if (rocketTwo.canCarry(currentItem)) {
+				rocketTwo.carry(currentItem);
 				R2RocketList.add(rocketTwo);
 			}
 		}
@@ -88,11 +90,15 @@ public class Simulation {
 
 		double totalBudget = 0;
 
-		for (Rocket rocketList : allRockets) {
+		for (Rocket rocket : allRockets) {
 
-			rocketList.land();
-			rocketList.launch();
-			totalBudget += rocketList.getCostOfRocket();
+			totalBudget += rocket.getCostOfRocket();
+
+			while (!rocket.launch() || !rocket.land()) {
+
+				totalBudget += rocket.getCostOfRocket();
+			}
+
 		}
 
 		return totalBudget;

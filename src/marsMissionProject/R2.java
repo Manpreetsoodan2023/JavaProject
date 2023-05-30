@@ -4,7 +4,7 @@ public class R2 extends Rocket {
 
 	R2() {
 
-		super(120000000, 18000, 29000);
+		super(120, 18000, 29000);
 	}
 
 	/*
